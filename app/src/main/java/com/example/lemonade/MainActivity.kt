@@ -10,19 +10,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lemonade.ui.theme.LemonadeTheme
@@ -42,14 +40,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Lemonade(modifier: Modifier = Modifier) {
-    var clickCount by remember { mutableStateOf(1) }
-    var currentImage by remember { mutableStateOf( R.drawable.lemon_tree) }
+fun Lemonade() {
+    var clickCount by remember { mutableIntStateOf(1) }
+    var currentImage by remember { mutableIntStateOf( R.drawable.lemon_tree) }
     var instructions by remember {
         mutableStateOf("Tap the lemon tree to select a lemon")
     }
-    var num by remember { mutableStateOf(0) }
-    var matchingNum by remember { mutableStateOf(1) }
+    var num by remember { mutableIntStateOf(0) }
+    var matchingNum by remember { mutableIntStateOf(1) }
 
     Column(
         modifier = Modifier.fillMaxSize(),
